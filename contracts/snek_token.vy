@@ -1,16 +1,20 @@
 # pragma version ^0.4.0
-""" 
-@license MIT 
+"""
+@license MIT
 @title snek_token
 @author Abhinav!
 @notice This is my ERC20 token!
 """
 from ethereum.ercs import IERC20
+
 implements: IERC20
+
+# ------------------------------------------------------------------
+#                              IMPORT
+# ------------------------------------------------------------------
 
 from snekmate.auth import ownable as ow
 from snekmate.tokens import erc20
-
 
 initializes: ow
 initializes: erc20[ownable := ow]
@@ -21,6 +25,7 @@ NAME: constant(String[25]) = "snek_token"
 SYMBOL: constant(String[5]) = "SNEK"
 DECIMAL: constant(uint8) = 18
 EIP712_VERSION: constant(String[20]) = "1"
+
 
 @deploy
 def __init__(initial_supply: uint256):
