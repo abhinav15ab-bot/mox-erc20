@@ -15,3 +15,4 @@ def test_token_emits_event():
         
         log_owner = logs[0].sender
         assert log_owner == snek_token.owner()
+    assert snek_token.balanceOf(RANDOM) == INITIAL_SUPPLY
